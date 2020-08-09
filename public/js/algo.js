@@ -5,6 +5,10 @@ $(document).ready(function(){
     $(document).on("click", ".add", addSong);
     var songArr = [];
     var playlistArr = [];
+    var playlistId = 1
+
+    //button level
+    // data-playlistid = 1
 
     function handleArtistSearch(event){
         event.preventDefault();
@@ -34,22 +38,12 @@ $(document).ready(function(){
             songArr = response.data;
 
             for (var i=0; i< songArr.length; i++){
-                // var songResults = [{
-                //     artist: songArr[i].artist.name,
-                //     songTitle: songArr[i].title,
-                //     album: songArr[i].album.title,
-                //     mp3: songArr[i].preview,
-                //     albumArt: songArr[i].album.cover_big
-                // }];
-                
                 var searchResDisplay = songArr[i].artist.name + " - " + songArr[i].title;
-
-                
                 console.log(searchResDisplay);
-
+                var songId = songArr[i].id
                 var songDisplay = `
                 <ul class="list-group">
-                <li class="list-group-item">${searchResDisplay}  <button type="button" id = ${i}  class="btn btn-primary btn-sm add">Add Song</button></li>
+                <li class="list-group-item">${searchResDisplay}  <button type="button" id = ${i} class="btn btn-primary btn-sm add">Add Song</button></li>
                 </ul>`
       
                 $("#song-results").append(songDisplay);
@@ -61,24 +55,24 @@ $(document).ready(function(){
             $("#artist-search").val('');
             handleArtistSearch();
         });
-
-    }
+    };
         function addSong (event){
             event.preventDefault();
-            $(this).attr("id")
+            var indexData = $(this).attr("id")
             console.log($(this).attr("id"));
             //ajax post request
+
         var songToAdd = 
-        //
         {
-            //name: $(songresults).val().trim()
-            name : $("#add").text(),
-            songTitle: songResults.songTitle,
-            album: songResults.album,
-            mp3: songResults.mp3,
-            albumArt: songResults.albumArt
+            artistName : songArr[indexData].artist.name,
+            songTitle: songArr[indexData].artist.title,
+            albumName: songArr[indexData].artist.album,
+            mp3: songArr[indexData].artist.mp3,
+            albumArt: songArr[indexData].artist.albumArt
         };
-        $.ajax("/api/songs", {
+        console.log(songToAdd);
+        
+        $.ajax("/api/playlist/addsong/" + playlistId, {
             type: "POST",
             data: songToAdd
         }).then(function () {
