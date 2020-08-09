@@ -65,10 +65,10 @@ $(document).ready(function(){
         var songToAdd = 
         {
             artistName : songArr[indexData].artist.name,
-            songTitle: songArr[indexData].artist.title,
-            albumName: songArr[indexData].artist.album,
-            mp3: songArr[indexData].artist.mp3,
-            albumArt: songArr[indexData].artist.albumArt
+            songTitle: songArr[indexData].title,
+            albumName: songArr[indexData].album.title,
+            mp3: songArr[indexData].preview,
+            albumArt: songArr[indexData].album.cover_big
         };
         console.log(songToAdd);
         
