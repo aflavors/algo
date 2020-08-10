@@ -7,16 +7,8 @@ $(document).ready(function(){
     var playlistArr = [];
     var playlistId = 1
 
-    //button level
-    // data-playlistid = 1
-
     function handleArtistSearch(event){
         event.preventDefault();
-
-        //Don't do anything if the artist search field hasn't been filled out
-        // if(!searchedArtist.val().trim().trim()){
-        //     return;
-        // }
 
         //Deezer API Call to Generate Song List(By Artist)
         let searchedArtist = $("#artist-search").val().trim();
