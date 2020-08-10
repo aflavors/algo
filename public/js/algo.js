@@ -62,22 +62,23 @@ $(document).ready(function(){
             console.log($(this).attr("id"));
             //ajax post request
 
-        var songToAdd = 
-        {
-            artistName : songArr[indexData].artist.name,
-            songTitle: songArr[indexData].title,
-            albumName: songArr[indexData].album.title,
-            mp3: songArr[indexData].preview,
-            albumArt: songArr[indexData].album.cover_big
+            var songToAdd = 
+            {
+                artistName : songArr[indexData].artist.name,
+                songTitle: songArr[indexData].title,
+                albumName: songArr[indexData].album.title,
+                mp3: songArr[indexData].preview,
+                albumArt: songArr[indexData].album.cover_big
+            };
+            console.log(songToAdd);
+            
+            $.ajax("/api/songs", {
+                type: "POST",
+                data: songToAdd
+            }).then(function () {
+                
+                console.log(`added new song: ${songToAdd.songTitle} by ${songToAdd.artistName}`);
+                //location.reload();
+            });
         };
-        console.log(songToAdd);
-        
-        $.ajax("/api/playlist/addsong/" + playlistId, {
-            type: "POST",
-            data: songToAdd
-        }).then(function () {
-            console.log(`added new song: ${songToAdd}`);
-            location.reload();
-        });
-    };
 });
