@@ -65,7 +65,7 @@ $(document).ready(function(){
             var songToAdd = 
             {
                 artistName : songArr[indexData].artist.name,
-                songTitle: songArr[indexData].title,
+                songName: songArr[indexData].title,
                 albumName: songArr[indexData].album.title,
                 mp3: songArr[indexData].preview,
                 albumArt: songArr[indexData].album.cover_big
@@ -77,7 +77,7 @@ $(document).ready(function(){
                 data: songToAdd
             }).then(function () {
                 
-                console.log(`added new song: ${songToAdd.songTitle} by ${songToAdd.artistName}`);
+                console.log(`added new song: ${songToAdd.songName} by ${songToAdd.artistName}`);
                 //location.reload();
             });
         };
