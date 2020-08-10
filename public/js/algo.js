@@ -7,16 +7,8 @@ $(document).ready(function(){
     var playlistArr = [];
     var playlistId = 1
 
-    //button level
-    // data-playlistid = 1
-
     function handleArtistSearch(event){
         event.preventDefault();
-
-        //Don't do anything if the artist search field hasn't been filled out
-        // if(!searchedArtist.val().trim().trim()){
-        //     return;
-        // }
 
         //Deezer API Call to Generate Song List(By Artist)
         let searchedArtist = $("#artist-search").val().trim();
@@ -65,7 +57,7 @@ $(document).ready(function(){
             var songToAdd = 
             {
                 artistName : songArr[indexData].artist.name,
-                songTitle: songArr[indexData].title,
+                songName: songArr[indexData].title,
                 albumName: songArr[indexData].album.title,
                 mp3: songArr[indexData].preview,
                 albumArt: songArr[indexData].album.cover_big
@@ -77,7 +69,7 @@ $(document).ready(function(){
                 data: songToAdd
             }).then(function () {
                 
-                console.log(`added new song: ${songToAdd.songTitle} by ${songToAdd.artistName}`);
+                console.log(`added new song: ${songToAdd.songName} by ${songToAdd.artistName}`);
                 //location.reload();
             });
         };

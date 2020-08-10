@@ -16,11 +16,11 @@
     <div class="container added-songs">
       <h3>Added Songs</h3>
       <ul>
-        {{#each Song}}
+        {{#each songs}}
             <li>
-              {{this.artistName}}
+              {{this.artistName}} - {{songName}} - {{albumName}}
             </li>
-            <li>
+            {{!-- <li>
               {{this.songName}}
             </li>
             <li>
@@ -31,7 +31,7 @@
             </li>
             <li>
               {{this.albumArt}}
-            </li>
+            </li> --}}
         {{/each}}
       </ul>
     </div>

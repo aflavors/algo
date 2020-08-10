@@ -8,8 +8,17 @@ module.exports = function (app) {
     //Return all songs in algo_db -> songs table
     app.get("/api/songs", (req, res) => {
         db.Song.findAll({}).then(dbSongs => {
-          res.json(dbSongs);
+            
+            var hbObj = {
+                songs: dbSongs,
+                test:123
+            };
+
+            console.log("Songs data: "+JSON.stringify(hbObj));
+            res.render("index", hbObj);
+
         });
+        
       });
 
     //Return all songs in Songs table
