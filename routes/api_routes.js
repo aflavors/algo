@@ -8,9 +8,9 @@ module.exports = function (app) {
     //Return all songs in algo_db -> songs table
     app.get("/api/songs", (req, res) => {
         db.Song.findAll({}).then(dbSongs => {
-            
+            const songs= dbSongs.map(row => row.dataValues)
             var hbObj = {
-                songs: dbSongs,
+                songs,
                 test:123
             };
 
