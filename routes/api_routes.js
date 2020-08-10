@@ -3,29 +3,32 @@ var db = require("../models");
 
 module.exports = function (app) {
 
-    // //Akeem Test
-    // app.post('/api/songs', function(req, res) {
-    //     console.log(req.body)
+    //API Routes====================
+
+    //Return all songs in algo_db -> songs table
+    app.get("/api/songs", (req, res) => {
+        db.Song.findAll({}).then(dbSongs => {
+          res.json(dbSongs);
+        });
+      });
+
+    //Return all songs in Songs table
+    // app.get("/api/songs", function (req, res) {
+    //     db.Song.findAll({
+    //         include: [db.Post]
+    //     }).then(function (dbSong) {
+    //         res.json(dbSong);
+    //         res.render(dbSong);
+    //     });
     // });
 
-
-    //song api routes
-
-    app.get("/api/songs", function (req, res) {
-        db.Song.findAll({
-            include: [db.Post]
-        }).then(function (dbSong) {
-            res.json(dbSong);
-            res.render(dbSong);
-        });
-    });
-
+    //Find one song in algo_db --> songs table and return as json object to user
     app.get("/api/songs/:id", function (req, res) {
         db.Song.findOne({
             where: {
                 id: req.params.id
             },
-            include: [db.Post]
+            //include: [db.Song]
         }).then(function (dbSong) {
             res.json(dbSong);
         });

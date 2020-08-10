@@ -1,0 +1,50 @@
+<div class="container">
+
+
+    <form>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Search by artist</label>
+        <input type="artist" class="form-control" id="artist-search">
+      </div>
+      <button id="search-button" class="btn btn-secondary btn-lg">Song Search</button>
+    </form>
+
+    <!-- Rendered song/search info will get dumped here  -->
+    <div id="postResultDiv"></div>
+    <div id="song-results"></div>
+
+    <div class="container added-songs">
+      <h3>Added Songs</h3>
+      <ul>
+        {{#each Song}}
+            <li>
+              {{this.artistName}}
+            </li>
+            <li>
+              {{this.songName}}
+            </li>
+            <li>
+              {{this.albumName}}
+            </li>
+            <li>
+              {{this.mp3}}
+            </li>
+            <li>
+              {{this.albumArt}}
+            </li>
+        {{/each}}
+      </ul>
+    </div>
+
+
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Select Playlist
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">Playlist 1</a>
+        <a class="dropdown-item" href="#">Playlist 2</a>
+        <a class="dropdown-item" href="#">Playlist 3</a>
+      </div>
+    </div>
+  </div>
