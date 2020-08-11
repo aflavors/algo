@@ -6,6 +6,7 @@ $(document).ready(function () {
     $(document).on("click", ".newPlaylistBtn", newPlaylist);
     $(document).on("click", "#dropdownMenuButton", displayPlaylistItems);
     $(document).on("click", "#playlist", addSongToPlaylist);
+    $(document).on("click", "#playlist-button", viewPlaylist);
 
     var songArr = [];
     var playlistArr = [];
@@ -152,6 +153,13 @@ $(document).ready(function () {
     }
     console.log(`added song to playlist`)
 
+    function viewPlaylist(){
+        $.ajax("/api/songs",{
+            type: "GET",
+        }).then(function() {
+            window.location.href = "/api/songs";
+          });
+    }
 
 
 
