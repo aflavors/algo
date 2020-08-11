@@ -15,23 +15,11 @@
 
     <div class="container added-songs">
       <h3>My Playlist</h3>
-      <ul>
+      <ul class="list-group">
         {{#each songs}}
-            <li>
-              {{artistName}} - {{songName}} - {{albumName}}
+            <li class="list-group-item">
+              <img src="{{albumArt}}" alt="album art" height="200px" width="200px"> {{artistName}} : {{songName}} - {{albumName}}<audio controls src="{{mp3}}"></audio>
             </li>
-            {{!-- <li>
-              {{this.songName}}
-            </li>
-            <li>
-              {{this.albumName}}
-            </li>
-            <li>
-              {{this.mp3}}
-            </li>
-            <li>
-              {{this.albumArt}}
-            </li> --}}
         {{/each}}
       </ul>
     </div>
