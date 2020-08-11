@@ -86,7 +86,9 @@ $(document).ready(function () {
         playlistArr.push(playlistToAdd);
         $.ajax("/api/playlist/new", {
             type: "POST",
-            data: playlistToAdd //will add object
+            data: {
+                playlistName: playlistToAdd //will add object
+            }
         }).then(function () {
             console.log(`Added ${songToAdd.songName} by ${songToAdd.artistName} to ${playlistToAdd}`)
         });
