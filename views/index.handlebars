@@ -42,7 +42,15 @@
         Select Playlist
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Playlist 1</a>
+        <a class="dropdown-item" href="#">Create New Playlist</a>
+            <form id="playlistForm">
+                <div class="form-group">
+                    <label for="searchArtist">Search by artist</label>
+                    <input type="text" class="form-control" id="playlistInput">
+                    <button class="btn btn-secondary btn-md addPlaylistBtn" type="submit"> + </button>
+                </div>
+            </form>
+        <a class="dropdown-item playList1" href="#">Playlist 1</a>
         <a class="dropdown-item" href="#">Playlist 2</a>
         <a class="dropdown-item" href="#">Playlist 3</a>
       </div>
