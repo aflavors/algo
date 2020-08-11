@@ -113,8 +113,8 @@ $(document).ready(function () {
 
         var playlistName = $("#playlistInput").val().trim();
 
-            $.ajax("/", {
-                type: "POST",
+            $.ajax("/api/playlists/list", {
+                type: "GET",
                 data: {
                     playlistName: playlistName
                 },

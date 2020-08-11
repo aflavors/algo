@@ -75,15 +75,14 @@ module.exports = function (app) {
 
         //update playlists
 
-    app.get("/api/playlists", (req, res) => {
+    app.get("/api/playlists/list", (req, res) => {
         db.Playlist.findAll({}).then(dbPlaylist => {
             const playlists= dbPlaylist.map(row => row.dataValues)
             var hbObj = {
-                
                 list:playlists
             };
 
-            console.log("Playlist data: "+JSON.stringify(hbObj));
+            console.log("Playlist data: ", hbObj);
             res.render("index", hbObj);
 
         });
