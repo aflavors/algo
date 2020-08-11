@@ -38,6 +38,16 @@
                     <button class="btn btn-secondary btn-md newPlaylistBtn" type="submit"> + </button>
                 </div>
             </form>
+            <ul class="list-group">
+        {{#each playlists}}
+        <li class="list-group-item">
+          <a class="dropdown-item" id="playlist" href="#">{{playlistName}}</a>
+        </li>
+        {{/each}}
+            </ul>
+        <li class="list-group-item" id="addPlaylist">
+
+        </li>
         <a class="dropdown-item playList1" href="#">Playlist 1</a>
         <a class="dropdown-item" href="#">Playlist 2</a>
         <a class="dropdown-item" href="#">Playlist 3</a>

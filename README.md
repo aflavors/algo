@@ -28,6 +28,7 @@ get route for playlist
 pass in the playlist name and return all rows matching the playlist name ( join where songid )
 
 
-
+Error: Parse error on line 44:
+...me}}</a>        {{#/each}}        <a c
 
 

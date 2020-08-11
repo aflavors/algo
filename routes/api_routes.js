@@ -60,10 +60,9 @@ module.exports = function (app) {
     });
         //playlist api routes
 
+
+        //get all playlists
     app.get("/api/playlists", function (req, res) {
-        // Here we add an "include" property to our options in our findOne query
-        // We set the value to an array of the models we want to include in a left outer join
-        // In this case, just db.Post
         db.Playlist.findAll({
             where: {
                 id: req.params.id
@@ -73,6 +72,23 @@ module.exports = function (app) {
             res.json(dbPlaylist);
         });
     });
+
+        //update playlists
+
+    app.get("/api/playlists", (req, res) => {
+        db.Playlist.findAll({}).then(dbPlaylist => {
+            const playlists= dbPlaylist.map(row => row.dataValues)
+            var hbObj = {
+                
+                list:playlists
+            };
+
+            console.log("Playlist data: "+JSON.stringify(hbObj));
+            res.render("index", hbObj);
+
+        });
+        
+      }); 
 
     app.get("/api/playlist/:id", function (req, res) {
         // Here we add an "include" property to our options in our findOne query
@@ -99,8 +115,8 @@ module.exports = function (app) {
         console.log(req.params.playlistid);
         console.log(req.body);  
         var newSongId;
-
-
+    
+    
         //make one call to dbSongs.create
         db.Song.create(req.body).then(function (dbSong) {
             //res.json(dbSong);
@@ -109,7 +125,7 @@ module.exports = function (app) {
 
             //find a way to return the playlist id just created
         });
-
+    
         // create object to insert for a new row in the playlist table
         var playlistSong = {
             playListName: req.params.playlistid,
