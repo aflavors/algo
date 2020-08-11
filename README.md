@@ -28,7 +28,13 @@ get route for playlist
 pass in the playlist name and return all rows matching the playlist name ( join where songid )
 
 
-Error: Parse error on line 44:
-...me}}</a>        {{#/each}}        <a c
 
+
+//save songs to a playlist==============================
+
+//add "add to playlist" drop down to every song
+//on click playlist add song to playlist
+
+//playlist dropdown====================
+//on click playlist display playlist (Akeems code)
 
