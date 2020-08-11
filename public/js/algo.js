@@ -3,10 +3,10 @@ $(document).ready(function () {
     //Adding event listeners to the form
     $(document).on("click", "#search-button", handleArtistSearch);
     $(document).on("click", ".add", addSong);
-    $(document).on("click", ".addPlaylistBtn", addToPlaylist);
+    $(document).on("click", ".newPlaylistBtn", newPlaylist);
     var songArr = [];
     var playlistArr = [];
-    var playlistId = 1
+    var playlistId = [];
 
     function handleArtistSearch(event) {
         event.preventDefault();
@@ -75,22 +75,31 @@ $(document).ready(function () {
         });
     };
 
-    function addToPlaylist() {
+    function newPlaylist() {
         event.preventDefault();
         // $("#playlistForm").attr("method", post);
         // $("#playlistForm").attr("action", path);
         //place holder to populate once "create new playlist is clicked"
         var playlistToAdd = $("#playlistInput").val().trim();
         console.log(playlistToAdd);
+
         // console.log(playlistToAdd.playlistId);
         playlistArr.push(playlistToAdd);
         $.ajax("/api/playlist/new", {
             type: "POST",
             data: {
-                playlistName: playlistToAdd //will add object
+                playlistName: playlistToAdd,
             }
         }).then(function () {
-            console.log(`Added ${songToAdd.songName} by ${songToAdd.artistName} to ${playlistToAdd}`)
+        $.ajax("/api/playlist/:id", {
+            type: "GET",
+            data: {
+                playlistName: playlistToAdd
+            },
+            })
+            console.log(`returned ${playlistToAdd}`)
+        
+            // console.log(`Added ${songToAdd.songName} by ${songToAdd.artistName} to ${playlistToAdd}`)
         });
     };
 });
