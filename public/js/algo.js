@@ -6,6 +6,7 @@ $(document).ready(function () {
     $(document).on("click", ".newPlaylistBtn", newPlaylist);
     $(document).on("click", "#dropdownMenuButton", displayPlaylistItems);
     $(document).on("click", "#playlist", addSongToPlaylist);
+    $(document).on("click", "#playlist-button", viewPlaylist);
 
     var songArr = [];
     var playlistArr = [];
@@ -39,29 +40,7 @@ $(document).ready(function () {
                 var songId = songArr[i].id
                 var songDisplay = `
                 <ul class="list-group">
-                <li class="list-group-item">${searchResDisplay}  <button type="button" id = ${i} class="btn btn-primary btn-sm add">Add Song</button>
-                <div class="dropdown playlist-menu">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Add To Playlist
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Create New Playlist</a>
-            <form id="playlistForm">
-                <div class="form-group">
-                    
-                    <input type="text" class="form-control" id="playlistInput">
-                    <button class="btn btn-secondary btn-md newPlaylistBtn" type="submit"> + </button>
-                </div>
-            </form>
-            <ul class="list-group">
-        {{#each list}}
-        <li class="list-group-item">
-          <a class="dropdown-item" id="playlist" href="#">{{playlistName}}</a>
-        </li>
-        {{/each}}
-            </ul>
-                </li>
-                </ul>`
+                <li class="list-group-item">${searchResDisplay}  <button type="button" id = ${i} class="btn btn-primary btn-sm add">Add Song</button>`
 
                 $("#song-results").append(songDisplay);
 
@@ -174,6 +153,13 @@ $(document).ready(function () {
     }
     console.log(`added song to playlist`)
 
+    function viewPlaylist(){
+        $.ajax("/api/songs",{
+            type: "GET",
+        }).then(function() {
+            window.location.href = "/api/songs";
+          });
+    }
 
 
 
