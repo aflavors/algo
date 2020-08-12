@@ -1,40 +1,31 @@
-# algorhythm
+# Algorhythm
 
+## Table of Contents
+- [Description](#Description)
+- [Installation](#Installation)
+- [Deployed](#Deployed)
+- [Future Development](#Future-Development)
+- [Credits](#Credits)
 
-// manually enter a playlist to the table so you have a value of 1 for the id.
+![](INSERT SCREENSHOT HERE)
 
+### Description
 
+AlgoRhythm is an easy to use playlist creation application, that allows you to create, and edit pre existing playlists on your favourite streaming services.
 
+### Installation
 
-// route to add a playlist
+Use the package manager [node](https://www.npmjs.com/) to run Algorhythm.
 
-body from UI:
-var playlist {
-    playlistname: ...value
-}
+The application will be invoked with the following comands:
 
-app.post()  already crated
-use db...create(req.body)
+    npm install
+    node server.js
 
+### Deployed
 
+Algorhythm is deployed  [here](INSERT HEROKU LINK HERE) on Heroku.
 
+### Credits
 
-* find out how to get the id of the song just created
-
-
-
-
-get route for playlist
-pass in the playlist name and return all rows matching the playlist name ( join where songid )
-
-
-
-
-//save songs to a playlist==============================
-
-//add "add to playlist" drop down to every song
-//on click playlist add song to playlist
-
-//playlist dropdown====================
-//on click playlist display playlist (Akeems code)
-
+Algorhythm was created by @evandev01, @aflavors, @chrisgbootcamp, and @jdelossantos47. Feel free to contact us if you have any questions! :v:
