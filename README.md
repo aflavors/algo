@@ -1,4 +1,5 @@
 # Algorhythm
+![](public/assets/algorhythm_name_logo.jpg)
 
 ## Table of Contents
 - [Description](#Description)
@@ -28,4 +29,5 @@ Algorhythm is deployed  [here](INSERT HEROKU LINK HERE) on Heroku.
 
 ### Credits
 
-Algorhythm was created by @evandev01, @aflavors, @chrisgbootcamp, and @jdelossantos47. Feel free to contact us if you have any questions! :v:
+Algorhythm was created by @evandev01, @aflavors, @chrisgbootcamp, and @jdelossantos47. 
+Feel free to contact us if you have any questions! :v:
